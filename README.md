@@ -3,7 +3,7 @@ Originally created by Teresa Le during the months of April, May, and June 2024.
 
 ### Motivation (in a few bullet-points):
 - Document the journey toward implementing a touchless data management system, exploring the possibility of using a graph database.
-- Determine if a graph database is the *best* option for academic, early development, and R&D settings.
+- Determine if a graph database can be used in an academic, early development, and R&D settings.
 - Teach lab members about Neo4j and the nuances involved with graph databases.
 - Create a place to upload all related code for quick and easy adaptation by the lab in the future.
 

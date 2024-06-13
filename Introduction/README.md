@@ -30,4 +30,4 @@ This project takes inspiration from the work of David Fenning's team and attempt
 2. Can we make the data management process QUICK and EASY?
 3. If so, what does that PROCESS look like?
 
-This project was explored while Teresa was simultaneously assisting with the FSLR Opentrons project in the spring of 2024, thus the data and database are modeled specifically for that process, with the intention of flexibility and generalization in mind.
+This project was explored while Teresa was simultaneously assisting with the FSLR Opentrons project in the spring of 2024, thus the data and database are modeled specifically for that process, with the intention of flexibility and generalizability in mind.

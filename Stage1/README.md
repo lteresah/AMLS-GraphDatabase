@@ -40,6 +40,8 @@ After a lot of thought, I decided on a different model for the database, one tha
 
 Having found no _critical_ issue with this model, I proceeded to try and upload my excel file and build the database.
 
+Note: the database model will undergo changes over time including the consolidation of a couple relationship types and the addition of nodes, but the general idea that the majority of information should be represented by nodes while the relationships enable tracking of event streams remains the same.
+
 ### 1.2.2: Figuring out a CSV structure that will work with the database
 
 My data started off as a [_single_ excel file]() containing columns indicating which ingredients I mixed, in what amount, the temperature of the hotplate when I heated the precursor, how long the precursor was heated, how long the precursor rested for, etc.  This, ultimately, could not be used to populate the database.
@@ -70,10 +72,12 @@ Therefore, my solution is _not_ ideal, but I have not gotten the opportunity to 
 
 To complete the timestamps, I simply guessed what hour of the day I performed the operation and then added an arbitrary amount of minutes/seconds to the time in order to maintain the correct order of operations.
 
-**CSV Structure Version 1:**
+**Database CSVs Version 1:**
 
-The CSVs will go through minor changes as I continue to explore the best way to implement the graph database, but the overall idea that each sheet should represent one operation type has remained the same, with the exception of a couple object types that have their own sheet.
+The first set of CSVs to be successfully turned into a graph database is contained in [this folder]().
 
-### 1.2.3: Importing CSVs into Neo4j to build the database
+Note: you will see the CSVs go through minor changes as I continue to explore the best way to implement the graph database, but the overall idea that each sheet should represent one operation type, with the exception of a couple object types having their own sheet, has remained the same.
+
+### 1.2.3: Importing CSVs into Neo4j Workspace to build the database
 
 ## 1.3: Discovering the Limitations of Neo4j Workspace

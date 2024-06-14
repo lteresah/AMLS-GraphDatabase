@@ -40,7 +40,7 @@ After a lot of thought, I decided on a different model for the database, one tha
 
 Having found no _critical_ issue with this model, I proceeded to try and upload my excel file and build the database.
 
-### 1.2.2: Importing CSVs using the Neo4j Workspace
+### 1.2.2: Figuring out a CSV structure that will work with the database
 
 My data started off as a [_single_ excel file]() containing columns indicating which ingredients I mixed, in what amount, the temperature of the hotplate when I heated the precursor, how long the precursor was heated, how long the precursor rested for, etc.  This, ultimately, could not be used to populate the database.
 
@@ -64,12 +64,16 @@ The unique identifiers for ingredients, precursors, and samples were chosen to m
 - Precursors: 02-###### (we don't actually have a policy to label our precursors)
 - Samples: 03-###### (we have a barcoding policy of samples in our lab that _differs_ from this, and we need to align before the graph database is officially implemented)
   
-I haphazardly came up with a structure for operation UIDs that I could automatically generate with excel based on their properties. My hope was that if I included enough properties I could minimize the risk of different operations sharing the same UID. This in turn would reduce the risk of unintentionally overwriting a node with a new one. While this method does reduce that risk, the risk of creating duplicate nodes increases as you include more properties. If a property included in the UID were to be corrected or updated, this would prompt the system to create a _new_ node for that operation without deleting the old one.
+I haphazardly came up with a structure for operation UIDs that I could automatically generate with excel based on their properties. My hope was that if I included enough properties I could minimize the risk of different operations sharing the same UID. This, in turn, would reduce the risk of unintentionally overwriting a node with a new, unrelated node. While this method does reduce that risk, the risk of creating duplicate nodes increases as you include more properties. If a property included in the UID were to be corrected or updated, this would prompt the system to create a _new_ node for that operation without deleting the old one.
 
 Therefore, my solution is _not_ ideal, but I have not gotten the opportunity to think about a better solution besides the possibility of using Universal Unique ID Generators.
 
-To complete the timestamps, I took a guess on what hour of the day I performed the operation. I then added an arbitrary amount of minutes/seconds to the time in order to maintain the correct order of operations.
+To complete the timestamps, I simply guessed what hour of the day I performed the operation and then added an arbitrary amount of minutes/seconds to the time in order to maintain the correct order of operations.
 
-**The Final CSV Structure:**
+**CSV Structure Version 1:**
+
+The CSVs will go through minor changes as I continue to explore the best way to implement the graph database, but the overall idea that each sheet should represent one operation type has remained the same, with the exception of a couple object types that have their own sheet.
+
+### 1.2.3: Importing CSVs into Neo4j to build the database
 
 ## 1.3: Discovering the Limitations of Neo4j Workspace

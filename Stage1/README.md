@@ -49,7 +49,7 @@ My data started off as a [_single_ excel file]() containing columns indicating w
 #### Lesson 1.3: The structure of and information in my excel file were not compatible with the graph database
 1. First off, you cannot upload an excel file to the Neo4j Workspace. You have to save it as a csv.
 2. Second, when working on the original excel file, I did not think to create a unique identifier for _every single operation_ that I put the precursor through, but, alas, this model requires that.
-3. Third, the import function relies on the column names of the CSV to help it populate nodes and map relationships. Having everything in one excel sheet made the mapping process somewhat confusing. I found myself mixing and matching columns from different operations in order to achieve the model I wanted. I also foresaw that this format was not going to be compatible with a process that was not fixed (i.e. missing operations or switching around the order).
+3. Third, the import function relies on the column names of the CSV to help it populate nodes and map relationships. Having everything in one excel sheet made the mapping process somewhat confusing. I found myself mixing and matching columns from different operations in order to achieve the model I wanted. I also foresaw that this format was not going to be compatible with a process that was not fixed (i.e. missing operations or flexible order).
 4. Lastly, in order to track the order of operations on an object (make the THEN relationship), I needed to have a timestamp with higher resolution than just the date, because a precursor often goes through multiple operations in a single day.
 
 **The better excel/csv structure:**

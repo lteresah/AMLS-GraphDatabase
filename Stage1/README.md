@@ -74,7 +74,7 @@ To complete the timestamps, I simply guessed what hour of the day I performed th
 
 **Database CSVs Version 1:**
 
-The first set of CSVs to be successfully turned into a graph database is contained in [this folder]().
+The first set of CSVs to be successfully turned into a graph database is contained in [this folder](https://github.com/lteresah/AMLS-GraphDatabase/tree/main/Stage1/CSVs_Version1).
 
 Note: you will see the CSVs go through minor changes as I continue to explore the best way to implement the graph database, but the overall idea that each sheet should represent one operation type, with the exception of a couple object types having their own sheet, has remained the same.
 

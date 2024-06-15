@@ -44,7 +44,7 @@ Note: the database model will undergo changes over time including the consolidat
 
 ### 1.2.2: Figuring out a CSV structure that will work with the database
 
-My data started off as a [_single_ excel file]() containing columns indicating which ingredients I mixed, in what amount, the temperature of the hotplate when I heated the precursor, how long the precursor was heated, how long the precursor rested for, etc.  This, ultimately, could not be used to populate the database.
+My data started off as a [_single_ excel file](https://github.com/lteresah/AMLS-GraphDatabase/blob/main/Stage1/FSLR-OriginalExcel.csv) containing columns indicating which ingredients I mixed, in what amount, the temperature of the hotplate when I heated the precursor, how long the precursor was heated, how long the precursor rested for, etc.  This, ultimately, could not be used to populate the database.
 
 #### Lesson 1.3: The structure of and information in my excel file were not compatible with the graph database
 1. First off, you cannot upload an excel file to the Neo4j Workspace. You have to save it as a csv.

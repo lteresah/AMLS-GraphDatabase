@@ -38,6 +38,21 @@ After a lot of thought, I decided on a different model for the database, one tha
 <img width="300" alt="FSLRModel1" src="https://github.com/lteresah/AMLS-GraphDatabase/assets/165841286/ed927354-6721-4325-8b5f-16805bbce938">
 </p>
 
+The elements of this model include:
+* Object Nodes:
+  1. Ingredients
+  2. Precursors
+* Operation Nodes:
+  1. Mix (Make Precursors)
+  2. Heat
+  3. Rest
+* Relationships:
+  1. INGREDIENT_OF (Denotes objects being used in an operation)
+  2. CREATED (Denotes creation of an object node by an operation)
+  3. WENT_TO (Denotes an object being acted on)
+  4. EXECUTED (_Not shown_, indicates which user performed the operation)
+  5. THEN (Tracks the chronological order of operations on a specific object)
+
 Having found no _critical_ issue with this model, I proceeded to try and upload my excel file and build the database.
 
 Note: the database model will undergo changes over time including the consolidation of a couple relationship types and the addition of nodes, but the general idea that the majority of information should be represented by nodes while the relationships enable tracking of event streams remains the same.
@@ -89,11 +104,28 @@ Below is part of the database that I was able to create using the Neo4j Workspac
 <img width="403" alt="FSLR_Model_Version2" src="https://github.com/lteresah/AMLS-GraphDatabase/assets/165841286/f4e2d3d5-b439-4f7b-91db-f8996a19a4e1">
 </p>
 
+The elements of this model include:
+* Object Nodes:
+  1. Ingredients
+  2. Precursors
+  3. Samples
+* Operation Nodes:
+  1. Mix (Make Precursors)
+  2. Mix (Make Samples)
+  3. Heat
+  4. Rest
+* Relationships:
+  1. INGREDIENT_OF (Denotes objects being used in an operation)
+  2. CREATED (Denotes creation of an object node by an operation)
+  3. WENT_TO (Denotes an object being acted on)
+  4. EXECUTED (_Not shown_, indicates which user performed the operation)
+  5. THEN (_Not shown_, tracks the chronological order of operations on a specific object)
+
 The first difference you will notice from **Version 1** is the addition of another "Mix" node which leads to the creation of a "Sample". By the time I got to this point of the exploration, the FSLR team had started to make samples, and this was included to accomodate the changes.
 
 #### Lesson 1.5: You need to spend time defining a Neo4j Perspective if you want the Bloom app to be interpretable.
 
-You will also notice that the nodes in the explore tab (Bloom app equivalent) are nicely colored and labeled. This was not automatically generated -- the user has to spend several minutes specifying how they want the nodes to appear and what properties show up when they hover over the nodes. Once they do this, they have created what Neo4j calls a **perspective**, which can be exported as a _.json file_ and shared with other users who wish to have the same settings.
+You will also notice that the nodes in the explore tab (Bloom app equivalent) are nicely colored and labeled. This was not automatically generated -- the user has to spend several minutes specifying how they want the nodes to appear and what properties show up when they hover over the nodes. Once they do this, they have created what Neo4j calls a **perspective**, which can be exported as a _.json_ file and shared with other users who wish to have the same settings.
 
 #### Lesson 1.6: Exporting a database does not export the Perspective -- it needs to be exported and shared separately.
 
@@ -101,5 +133,11 @@ Although I learned this much later on, I feel it is best to place this fact here
 
 ### 1.3.2: What it is not able to do
 
-While I was able to implement most of the model 
+While I was able to implement the majority of my desired model using the Neo4j Workshop, I was unable to find a way to add the most important feature: a relationship (:THEN) that tracks the chronological order of operations on an object node. To do this, one would need a way to disinguish object nodes from operation nodes _and_ only apply the relationship to operations that act on the same object _and_ only on particular types of objects. This level of detail required two things that the Workshop is unable to do:
+1. Designate multiple labels to a single node.
+2. Execute advanced CYPHER queries.
 
+At this point in time, it was optimal to abandon Neo4j Workshop and pivot to **Neo4j Desktop**. The reasons are as follows:
+1. The touch-less data management system was never going to use Neo4j Workshop. It cannot rely on navigating an internet browser and manually uploading CSVs through a GUI.
+2. The user needs to become familiar with the CYPHER language if they are seriously thinking about implementing a touch-less data management system with it.
+3. The act of importing your entire dataset to the database every time you update the database is obviously a timely and costly operation and should be avoided.

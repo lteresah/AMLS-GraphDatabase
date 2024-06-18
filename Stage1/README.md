@@ -1,5 +1,5 @@
 ## Table of Contents:
-* 1.1: [Creating a Neo4j account, Starting an AuraDB Instance, Exploring Tutorial Videos](##1.1:-Creating-a-Neo4j-account,-Starting-an-AuraDB-Instance,-Exploring-Tutorial-Videos) 
+* 1.1: [Creating a Neo4j account, Starting an AuraDB Instance, Exploring Tutorial Videos](##1.1:-creating-a-neo4j-account,-starting-an-auraDB-instance,-exploring-tutorial-videos) 
 * 1.2: 
 
 # Stage 1: Learning how to use Neo4j and getting _any_ database running

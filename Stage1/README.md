@@ -78,6 +78,13 @@ The first set of CSVs to be successfully turned into a graph database is contain
 
 Note: you will see the CSVs go through minor changes as I continue to explore the best way to implement the graph database, but the overall idea that each sheet should represent one operation type, with the exception of a couple object types having their own sheet, has remained the same.
 
-### 1.2.3: Importing CSVs into Neo4j Workspace to build the database
-
 ## 1.3: Discovering the Limitations of Neo4j Workspace
+
+### 1.3.1: What it is able to do
+**Database Model Version 2:**
+Below is a selected piece of the database that I was able to create using the Neo4j Workspace:
+
+<p align="center">
+</p>
+
+

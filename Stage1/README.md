@@ -1,3 +1,7 @@
+## Table of Contents:
+* 1.1: [Creating a Neo4j account, Starting an AuraDB Instance, Exploring Tutorial Videos](##1.1:-Creating-a-Neo4j-account,-Starting-an-AuraDB-Instance,-Exploring-Tutorial-Videos) 
+* 1.2: 
+
 # Stage 1: Learning how to use Neo4j and getting _any_ database running
 ## 1.1: Creating a Neo4j account, Starting an AuraDB Instance, Exploring Tutorial Videos
 To be able to follow along and run some of the code in this repository, it is highly recommended that you start your own, free Neo4j account and explore the tutorial videos in the **Neo4j Workspace**.  Rather than restating information that is already available, a [video](https://www.dropbox.com/scl/fi/vrilgctb5i738j1swkg98/StartingNeo4j.mov?rlkey=9o3db4bwy757o5k6hu76n5pbd&dl=0) has been created to help you get started. Since the video is (much) larger than 10 MB, it could not be uploaded to github, thus a link is provided.

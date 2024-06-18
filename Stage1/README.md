@@ -24,13 +24,13 @@ My initial plan for the model consisted of nodes representing objects and relati
 <img  width="500" alt="FSLRModel1" src="https://github.com/lteresah/AMLS-GraphDatabase/assets/165841286/1ac1748a-b465-4443-a365-aedf333f99ea">
 </p>
  
-#### Lesson 1.1: It is not a good idea to restrict the assignment of objects to nodes and operations to relationships.
+##### Lesson 1.1: It is not a good idea to restrict the assignment of objects to nodes and operations to relationships.
 I quickly scrapped the above idea. Doing this would cause a great amount of entropy in both domains. What about things that aren't exactly objects or operations? What if one person considers something an operation but another thinks its an object? Effecively navigating the database requires a solid understanding of the model, and the model above would make it very difficult to **query** data.
 
-#### Lesson 1.2: Every node in the graph database needs to have its own unique identifier to reduce the risk of duplicate nodes.
+##### Lesson 1.2: Every node in the graph database needs to have its own unique identifier to reduce the risk of duplicate nodes.
 If I decided to enforce barcoding of precursors in the lab, something that was already done with samples and chemicals, it would be natural to use the precursor's barcode as its unique identifier in the graph database. However, since each operation on the precursor creates a new node, that would require the precursor's barcode be _physically_ updated every time an operation is performed. This is unrealistic if done manually and still hard to do in an automated process.
 
-**Database Model Version 1:**
+#### Database Model Version 1:
 
 After a lot of thought, I decided on a different model for the database, one that maximizes entropy in the node domain but restricts the relationship domain to representing the sequence of events (with a couple exceptions).  The new model looks very similar to but is different from the Fenning group's model and looked something like this:
 
@@ -46,13 +46,13 @@ Note: the database model will undergo changes over time including the consolidat
 
 My data started off as a [_single_ excel file](https://github.com/lteresah/AMLS-GraphDatabase/blob/main/Stage1/FSLR-OriginalExcel.csv) containing columns indicating which ingredients I mixed, in what amount, the temperature of the hotplate when I heated the precursor, how long the precursor was heated, how long the precursor rested for, etc.  This, ultimately, could not be used to populate the database.
 
-#### Lesson 1.3: The structure of and information in my excel file were not compatible with the graph database
+##### Lesson 1.3: The structure of and information in my excel file were not compatible with the graph database
 1. First off, you cannot upload an excel file to the Neo4j Workspace. You have to save it as a csv.
 2. Second, when working on the original excel file, I did not think to create a unique identifier for _every single operation_ that I put the precursor through, but, alas, this model requires that.
 3. Third, the import function relies on the column names of the CSV to help it populate nodes and map relationships. Having everything in one excel sheet made the mapping process somewhat confusing. I found myself mixing and matching columns from different operations in order to achieve the model I wanted. I also foresaw that this format was not going to be compatible with a process that was not fixed (i.e. missing operations or flexible order).
 4. Lastly, in order to track the order of operations on an object (make the THEN relationship), I needed to have a timestamp with higher resolution than just the date, because a precursor often goes through multiple operations in a single day.
 
-**The better excel/csv structure:**
+#### The better excel/csv structure:
 
 I decided that it was better to split my excel sheet into several sheets, each sheet representing an operation. Rather than creating a single repository for all the information you need to know about a precursor, something most scientists would do, I created logs for each operation type with at least one column indicating which object(s) that operation was related to. This made mapping the csvs to their corresponding nodes and relationships much less convoluted and did not restrict the order or number of operations on a single precursor.
 
@@ -60,7 +60,7 @@ While the downside of this method involves losing the convenience of having all 
 
 My next step after splitting the excel sheet was to populate the information that I was missing (i.e. unique identifiers and timestamps for each operation).
 
-#### Lesson 1.4: Unique identifiers (UIDs) really matter
+##### Lesson 1.4: Unique identifiers (UIDs) really matter
 The unique identifiers for ingredients, precursors, and samples were chosen to match the barcoding practice of chemicals at MIT.
 - Chemicals/Ingredients: 01-######
 - Precursors: 02-###### (we don't actually have a policy to label our precursors)
@@ -72,7 +72,7 @@ Therefore, my solution is _not_ ideal, but I have not gotten the opportunity to 
 
 To complete the timestamps, I simply guessed what hour of the day I performed the operation and then added an arbitrary amount of minutes/seconds to the time in order to maintain the correct order of operations.
 
-**Database CSVs Version 1:**
+#### **Database CSVs Version 1:**
 
 The first set of CSVs to be successfully turned into a graph database is contained in [this folder](https://github.com/lteresah/AMLS-GraphDatabase/tree/main/Stage1/CSVs_Version1).
 
@@ -81,10 +81,25 @@ Note: you will see the CSVs go through minor changes as I continue to explore th
 ## 1.3: Discovering the Limitations of Neo4j Workspace
 
 ### 1.3.1: What it is able to do
-**Database Model Version 2:**
-Below is a selected piece of the database that I was able to create using the Neo4j Workspace:
+#### **Database Model Version 2:**
+
+Below is part of the database that I was able to create using the Neo4j Workspace:
 
 <p align="center">
+<img width="403" alt="FSLR_Model_Version2" src="https://github.com/lteresah/AMLS-GraphDatabase/assets/165841286/f4e2d3d5-b439-4f7b-91db-f8996a19a4e1">
 </p>
 
+The first difference you will notice from **Version 1** is the addition of another "Mix" node which leads to the creation of a "Sample". By the time I got to this point of the exploration, the FSLR team had started to make samples, and this was included to accomodate the changes.
+
+##### Lesson 1.5: You need to spend time defining a Neo4j Perspective if you want the Bloom app to be interpretable.
+
+You will also notice that the nodes in the explore tab (Bloom app equivalent) are nicely colored and labeled. This was not automatically generated -- the user has to spend several minutes specifying how they want the nodes to appear and what properties show up when they hover over the nodes. Once they do this, they have created what Neo4j calls a **perspective**, which can be exported as a _.json file_ and shared with other users who wish to have the same settings.
+
+##### Lesson 1.6: Exporting a database does not export the Perspective -- it needs to be exported and shared separately.
+
+Although I learned this much later on, I feel it is best to place this fact here. If you wish to share your database by exporting it as a _.dump_ file, the Perspective is not saved. If you want to share your database as you see it on the Bloom app, you need to export both a snapshot of the database as well as the Perspective.
+
+### 1.3.2: What it is not able to do
+
+While I was able to implement most of the model 
 

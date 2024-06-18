@@ -12,7 +12,7 @@
   - Neo4j Browser (A more advanced version of the "Query" Tab in Neo4j Workshop)
   - Other apps I never used...
  
-## 2.2: Recreating the graph database (+ additional required features) using the Neo4j Browser
+## 2.2: Recreating the graph database (+ additional desired features) using the Neo4j Browser
 ### 2.2.1: Setting up the project space
 ### 2.2.2: Using Neo4j Workshop to generate CYPHER script
 ### 2.2.3: Figuring out how to implement the :THEN relationship

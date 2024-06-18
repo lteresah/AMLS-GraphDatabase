@@ -7,7 +7,7 @@
 - The ability to create _local_ databases, which can be quickly deleted and recreated
 - The ability to connect to cloud databases inside the application
 - The option to Upload/Save CYPHER scripts for quick use
-- In the Graph Apps Tab:
+- The Graph Apps Tab which includes:
   - Neo4j Bloom (Same as the "Explore" Tab in the Neo4j Workshop)
   - Neo4j Browser (A more advanced version of the "Query" Tab in Neo4j Workshop)
   - Other apps I never used...

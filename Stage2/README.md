@@ -97,3 +97,9 @@ The elements of this model include:
 
 ## 2.3: Discussing the Limitations of this Method
 
+At this point, we are able to upload data (from CSVs) into the database using the Neo4j Browser and generate Version 3 of the FSLR Database Model. The model includes all of the relationships we want to include and every node (up to sample creation) of the FSLR process. This is a great first step towards achieving the data management system we envision, but it is far from the flexible, touch-less, fast, and easy system that we need.
+
+The next stage(s) of the development period will focus on addressing some of the below issues:
+
+**1. Reliance on Neo4j Browser** -- a touch-less data management system cannot be achieved if it requires the opening of a desktop app and copying/pasting code into the Neo4j Browser. Stage 3 of the development process will experiment with the Neo4j Python API in order to transfer the upload process from the Neo4j Browser to a Python client or script.
+**2. Lack of Flexibility** -- the current model uses _hardcoded_ CYPHER scripts written specifically for the CSVs they were meant to work with. This means that other users performing the same operations but tracking different variables will find themselves unable to use the code to upload their data. Stage 4 of the development process will work on reading CSVs with python and generating node properties based on the content in the CSVs.

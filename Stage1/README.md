@@ -40,8 +40,9 @@ After a lot of thought, I decided on a different model for the database, one tha
 
 The elements of this model include:
 * Object Nodes:
-  1. Ingredients
-  2. Precursors
+  1. Group Members (_Not shown_)
+  2. Ingredients
+  3. Precursors
 * Operation Nodes:
   1. Mix (Make Precursors)
   2. Heat
@@ -106,14 +107,14 @@ Below is part of the database that I was able to create using the Neo4j Workspac
 
 The elements of this model include:
 * Object Nodes:
-  1. Ingredients
-  2. Precursors
-  3. Samples
+  1. Group Members (_Not shown_)
+  2. Ingredients
+  3. Precursors
+  4. Samples
 * Operation Nodes:
-  1. Mix (Make Precursors)
-  2. Mix (Make Samples)
-  3. Heat
-  4. Rest
+  1. Mix (Make Precursors and Samples)
+  2. Heat
+  3. Rest
 * Relationships:
   1. INGREDIENT_OF (Denotes objects being used in an operation)
   2. CREATED (Denotes creation of an object node by an operation)

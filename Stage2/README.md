@@ -51,7 +51,7 @@ See documentary on [implicit vs explicit transactions](https://neo4j.com/docs/cy
 
 Once I was able to recreate what I built with the Neo4j Workshop, it was time to figure out how to implement what the Workshop could not do. The steps I took were as follows:
 
-**Step 1:** Added secondary labels called "Operation" to all the operation nodes by changing
+**Step 1:** Added secondary labels called "Operation" to all the operation nodes by changing all instances of
 
      MERGE (n: name_of_operation { `UID_property_name`: row.`row_label_containing_UID` })
     

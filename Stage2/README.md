@@ -79,5 +79,21 @@ The FSLR database model (Version 3) produced by this script is pictured below:
 <img width="640" alt="FSLR_Model_Version3" src="https://github.com/lteresah/AMLS-GraphDatabase/assets/165841286/1e60464d-dfb9-4a21-a3c2-107bf787f169">
 </p>
 
+The elements of this model include:
+* Object Nodes:
+  1. Users (Renamed from "Group Members")
+  2. OTC Ingredients (Renamed from "Ingredients")
+  3. Precursors
+  4. Samples
+* Operation Nodes:
+  1. Mix (Make Precursors and Samples)
+  2. Heat
+  3. Rest
+* Relationships:
+  1. CREATED (Denotes creation of an object node by an operation)
+  2. WENT_TO (Denotes an object being acted on, INGREDIENT_OF was consolidated with this relationship)
+  3. EXECUTED (Indicates which user performed the operation)
+  4. THEN (Tracks the chronological order of operations on a specific object)
+
 ## 2.3: Discussing the Limitations of this Method
 

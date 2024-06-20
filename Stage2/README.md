@@ -31,7 +31,7 @@ Again, this method only allowed me to recreate the part of the database that I w
 
 The following modifications are required in order to make the generated code run in Neo4j Browser:
 
-#### Lesson 2.1: You need to create readable, _download_ links to CSVs if you want to use Neo4j Browser to upload data.
+#### Lesson 2.1: You need to create readable, _download or raw_ links to CSVs if you want to use Neo4j Browser to upload data.
 
 And you need to reference the links to the CSVs by defining them as parameters using syntax such as:
 

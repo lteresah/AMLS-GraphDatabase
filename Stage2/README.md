@@ -67,7 +67,17 @@ Once I was able to recreate what I built with the Neo4j Workshop, it was time to
 
 **Step 4:** Added the block of code to the end of the script to run after all other nodes and relationships have been created.
 
-#### CYPHER Script Version 2, CSV Files Version 2, and Database Model Version 2 (Full Success)
+#### CYPHER Script Version 2, CSV Files Version 2, and Database Model Version 3
 
-The script went through several iterations before reaching its final form ([Version 2.0]()).  It is meant to be run with [Version 2 of the CSV files](), which removed redundant information about **OTC (Over the Counter) Ingredients** (formerly **Ingredients**) from the **Mix** operation and stored the information in a separate CSV file.
+The script went through several iterations before reaching its final form ([Version 2.0](https://github.com/lteresah/AMLS-GraphDatabase/blob/main/Stage2/Cypher%20Scripts/Load_FSLR_V2P0GH.cypher)).
+
+It is meant to be run with [Version 2 of the CSV files](https://github.com/lteresah/AMLS-GraphDatabase/tree/main/Stage2/CSVs_Version2). (Removed redundant information about **OTC (Over the Counter) Ingredients** (formerly **Ingredients**) from the **Mix** operation and stored the information in a separate CSV file. Minor changes to column names and major changes to number of columns in certain CSVs.)
+
+The FSLR database model (Version 3) produced by this script is pictured below: 
+
+<p align="center">
+  
+</p>
+
+## 2.3: Discussing the Limitations of this Method
 

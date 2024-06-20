@@ -76,7 +76,7 @@ It is meant to be run with [Version 2 of the CSV files](https://github.com/ltere
 The FSLR database model (Version 3) produced by this script is pictured below: 
 
 <p align="center">
-  
+<img width="640" alt="FSLR_Model_Version3" src="https://github.com/lteresah/AMLS-GraphDatabase/assets/165841286/1e60464d-dfb9-4a21-a3c2-107bf787f169">
 </p>
 
 ## 2.3: Discussing the Limitations of this Method

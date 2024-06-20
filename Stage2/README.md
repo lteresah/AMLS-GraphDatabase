@@ -21,13 +21,13 @@ A [link](https://www.dropbox.com/scl/fi/l4vekjhoiz3oqql8fozh0/Neo4jDesktop.mov?r
 
 ### 2.2.2: Using Neo4j Workshop to generate the CYPHER script
 
-The next thing I did was figure out how to import my database using CYPHER code instead of Neo4j Workshop's Import Tab. It is highly recommended that you spend some time exploring the language yourself, as there is no good way to impart to you all the knowledge I gained scouring the [CYPHER documentation](https://neo4j.com/docs/cypher-manual/current/introduction/). However, a good way to start is to take advantage of the "Generate Cypher Script" option in Neo4j Workshop's Import Tab to generate a script for the database you created.
+The next thing I did was figure out how to import my data using CYPHER code instead of Neo4j Workshop's Import Tab. It is highly recommended that you spend some time exploring the language yourself, as there is no good way for me to impart to you all the knowledge I gained scouring the [CYPHER documentation](https://neo4j.com/docs/cypher-manual/current/introduction/). However, a good way to start is to take advantage of the "Generate Cypher Script" option in Neo4j Workshop's Import Tab to generate a script for the database you created.
 
 <p align="center">
 <img width="1000" alt="GenerateCypher" src="https://github.com/lteresah/AMLS-GraphDatabase/assets/165841286/3cde4740-2f65-4181-9a81-0038ad9e1056">
 </p>
 
-Again, this method only allows me to recreate the part of the database that I was able to implement using Neo4j Workshop, and it does _not_ immediately run when copied and pasted into the Neo4j Browser. 
+Again, this method only allowed me to recreate the part of the database that I was able to implement using Neo4j Workshop, and it does _not_ immediately run when copied and pasted into the Neo4j Browser. 
 
 The following modifications are required in order to make the generated code run in Neo4j Browser:
 
@@ -39,12 +39,35 @@ And you need to reference the links to the CSVs by defining them as parameters u
 
 #### Lesson 2.2: The generated code is meant to be run as an _implicit transaction_, and the default transaction type in Neo4j Browser is _explicit_.
 
-The parts of the code that can only be run in implicit transactions need to be commented out and/or replaced. Namely, the line at the end of a query that iterates through the rows of a CSV
+The parts of the code that can only be run as implicit transactions need to be commented out and/or replaced. Namely, the lines at the end of a query that read:
 
      IN TRANSACTIONS OF 10000 ROWS;
 
-needs to commented out and replaced by a semicolon.
+need to commented out and replaced by a semicolon.
 See documentary on [implicit vs explicit transactions](https://neo4j.com/docs/cypher-manual/current/introduction/cypher-neo4j/#cypher-neo4j-transactions).
 
 
 ### 2.2.3: Figuring out how to implement the :THEN relationship
+
+Once I was able to recreate what I built with the Neo4j Workshop, it was time to figure out how to implement what the Workshop could not do. The steps I took were as follows:
+
+**Step 1:** Added secondary labels called "Operation" to all the operation nodes by changing
+
+     MERGE (n: name_of_operation { `UID_property_name`: row.`row_label_containing_UID` })
+    
+  to
+
+     MERGE (n: Operation:name_of_operation { `UID_property_name`: row.`row_label_containing_UID` })
+
+  Additional labels were added for certain operations.
+
+**Step 2:** Searched the internet for ideas on how to implement the time dependent relationship (:THEN).
+
+**Step 3:** Modified the code found toward the bottom of this [webpage](https://community.neo4j.com/t/how-to-create-relationships-between-consecutive-nodes-based-on-date-property/29372/7) to fit the needs of our database.
+
+**Step 4:** Added the block of code to the end of the script to run after all other nodes and relationships have been created.
+
+#### CYPHER Script Version 2, CSV Files Version 2, and Database Model Version 2 (Full Success)
+
+The script went through several iterations before reaching its final form ([Version 2.0]()).  It is meant to be run with [Version 2 of the CSV files](), which removed redundant information about **OTC (Over the Counter) Ingredients** (formerly **Ingredients**) from the **Mix** operation and stored the information in a separate CSV file.
+

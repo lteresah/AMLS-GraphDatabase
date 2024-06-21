@@ -73,7 +73,7 @@ The script went through several iterations before reaching its final form ([Vers
 
 It is meant to be run with [Version 2 of the CSV files](https://github.com/lteresah/AMLS-GraphDatabase/tree/main/Stage2/CSVs_Version2). (Removed redundant information about **OTC (Over the Counter) Ingredients** (formerly **Ingredients**) from the **Mix** operation and stored the information in a separate CSV file. Minor changes to column names and major changes to number of columns in certain CSVs.)
 
-The FSLR database model (Version 3) produced by this script is pictured below: 
+The FSLR database model (Version 3) produced by this script using this [perspective](https://github.com/lteresah/AMLS-GraphDatabase/blob/main/Stage2/Cypher%20Scripts/FSLR%20Perspective.json) is pictured below: 
 
 <p align="center">
 <img width="640" alt="FSLR_Model_Version3" src="https://github.com/lteresah/AMLS-GraphDatabase/assets/165841286/1e60464d-dfb9-4a21-a3c2-107bf787f169">

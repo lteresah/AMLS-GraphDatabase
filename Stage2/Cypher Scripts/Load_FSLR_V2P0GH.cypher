@@ -202,13 +202,14 @@ CALL {
   SET n.`Timestamp` = datetime(row.`Mix Timestamp`)
   SET n.`New Sample ID` = row.`New Object ID`
   SET n.`Precipitated` = row.`Precipitated`
+  SET n.`Mix Temp (C)` = toFloat(trim(row.`Mix Temp (C)`))
   SET n.`Ing 1 Description` = row.`Ing 1 Description`
   SET n.`Ing 1 ID` = row.`Ing 1 ID`
   SET n.`Ing 1 Actual Amt` = toFloat(trim(row.`Ing 1 Actual Amt`))
   SET n.`Ing 1 Amt Unit` = row.`Ing 1 Amt Unit`
   SET n.`Ing 2 Description` = row.`Ing 2 Description`
   SET n.`Ing 2 ID` = row.`Ing 2 ID`
-  SET n.`Ing 2 Actual Amt` = toInteger(trim(row.`Ing 2 Actual Amt`))
+  SET n.`Ing 2 Actual Amt` = toFloat(trim(row.`Ing 2 Actual Amt`))
   SET n.`Ing 2 Amt Unit` = row.`Ing 2 Amt Unit`
   SET n.`Executor` = row.`Executor`
   SET n.`Notes` = row.`Notes`

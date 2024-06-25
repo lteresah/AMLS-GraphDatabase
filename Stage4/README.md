@@ -88,4 +88,4 @@ The script generates the database in the following order:
    - Combines above cypher scripts
    - Passes final script into the Neo4j database as a transaction
    
-## 4.3: Lessons Learned, Missing Features, and Recommended Next Steps
+## 4.3: Missing Features, Lessons Learned, and Recommended Next Steps

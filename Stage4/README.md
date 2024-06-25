@@ -89,3 +89,16 @@ The cypher functions are embedded inside other functions that directly manipulat
    - Passes final script into the Neo4j database as a transaction
    
 ## 4.3: Missing Features, Lessons Learned, and Recommended Next Steps
+
+### 4.3.1: Missing Features
+
+1. This script does _not_ populate the properties of nodes that are created within an operation (for example: a mix node).  While the produce node, itself, is created within the db_pushOperations() function, only the UID property is filled in. There is currently no distinguisher for properties that go to the operation node and those that go to the product node(s). Instead, all the properties of an operation go to the operation node.
+   
+2. Although it would likely produce an error if you tried to create a nodetype not in the Node Dictionary, the script does not explicitly check if a node is allowed when creating it.  This opens up avenues for unregistered nodes to be created, especially during the db_PushOperations() stage.
+   
+4. The db_PushObjects() function only works for pandas structures, as it was designed to load Users and Ingredients. However, other types of objects exist, and it would be nice if the function were general enough to handle all kinds of objects.
+
+### 4.3.2: Lessons Learned
+
+### 4.3.3: Recommended Next Steps
+   

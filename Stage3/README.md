@@ -37,4 +37,8 @@ I ran into some difficulty because my CYPHER script was one giant block of code 
 
 My solution was to separate each of the queries into independent scripts and store them in a strategically organized main folder. I then wrote a jupyter notebook script that enters each folder/subfolder in the main folder and executes every .cypher script it finds.
 
-The notebook can be found [here](https://github.com/lteresah/AMLS-GraphDatabase/blob/main/Stage3/neo4jPythonAPI_FixedCSV_GH.ipynb). In order to run it, you need to download the [folder](https://github.com/lteresah/AMLS-GraphDatabase/blob/main/Stage3/FSLR_Model.zip) containing all the .cypher scripts.  Inside the notebook, change the variable named _directory_ to the appropriate folder path on your computer. Follow any other instructions outlined in the notebook.
+To explore this jupyter notebook:
+1. Download the [notebook](https://github.com/lteresah/AMLS-GraphDatabase/blob/main/Stage3/neo4jPythonAPI_FixedCSV_GH.ipynb).
+2. Download the [folder](https://github.com/lteresah/AMLS-GraphDatabase/blob/main/Stage3/FSLR_Model.zip) containing all the .cypher scripts.
+3. Inside the notebook, set the variable named _directory_ to the location of the folder you downloaded.
+4. Follow any other instructions outlined in the notebook.

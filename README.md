@@ -23,4 +23,7 @@ Originally created by Teresa Le during the months of April, May, and June 2024.
   - 3.2: Testing the waters with simple read and write queries
   - 3.3: Creating a python script that loads the entire FSLR database
 * [**Stage 4:** Imagining a python algorithm that accepts variable data from CSVs](https://github.com/lteresah/AMLS-GraphDatabase/tree/main/Stage4#stage-4-creating-a-python-algorithm-that-accepts-varying-data-from-csvs)
+  - 4.1: Basic Structure of the Script
+  - 4.2: More Detailed Information on Node and Relationship Generation
+  - 4.3: Missing Features, Lessons Learned, and Recommended Next Steps
 

@@ -25,11 +25,11 @@ The first stage of the python transition involved:
 3. Attempting simple read queries
 4. Turning the results of the read query into a pandas dataframe
 
-The script produced during this stage can be found [here](). Additional steps on how to run the script are included within.
+The jupyter notebook produced during this stage can be found [here](https://github.com/lteresah/AMLS-GraphDatabase/blob/main/Stage3/neo4jPythonAPI_Simple.ipynb). Additional steps describing how to run the script are included within.
 
 ## 3.3: Creating a python script that loads the entire FSLR database
 
-Once I completed the first stage, I then attempted to load the entire FSLR database using the existing [CSV Version 2]() files.
+Once I completed the first stage, I then attempted to load the entire FSLR database using the existing [CSV Version 2](https://github.com/lteresah/AMLS-GraphDatabase/tree/main/Stage2/CSVs_Version2) files.
 
 #### Lesson 3.1: The Neo4j Python Driver cannot run more than one query in a single transaction.
 
@@ -37,4 +37,4 @@ I ran into some difficulty because my CYPHER script was one giant block of code 
 
 My solution was to separate each of the queries into independent scripts and store them in a strategically organized main folder. I then wrote a jupyter notebook script that enters each folder/subfolder in the main folder and executes every .cypher script it finds.
 
-The notebook can be found [here](). In order to run it, you need to download the [folder]() containing all the .cypher scripts.  Inside the notebook, change the variable named _directory_ to the appropriate folder path on your computer.
+The notebook can be found [here](https://github.com/lteresah/AMLS-GraphDatabase/blob/main/Stage3/neo4jPythonAPI_FixedCSV_GH.ipynb). In order to run it, you need to download the [folder](https://github.com/lteresah/AMLS-GraphDatabase/blob/main/Stage3/FSLR_Model.zip) containing all the .cypher scripts.  Inside the notebook, change the variable named _directory_ to the appropriate folder path on your computer.

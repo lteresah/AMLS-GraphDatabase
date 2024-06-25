@@ -41,4 +41,4 @@ To explore this jupyter notebook:
 1. Download the [notebook](https://github.com/lteresah/AMLS-GraphDatabase/blob/main/Stage3/neo4jPythonAPI_FixedCSV_GH.ipynb).
 2. Download the [folder](https://github.com/lteresah/AMLS-GraphDatabase/blob/main/Stage3/FSLR_Model.zip) containing all the .cypher scripts.
 3. Inside the notebook, set the variable named _directory_ to the location of the folder you downloaded.
-4. Follow any other instructions outlined in the notebook.
+4. Follow any other instructions outlined in the notebook to run the script.

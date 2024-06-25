@@ -1,6 +1,6 @@
 # Stage 3: Exploring the Neo4j Python API to remove dependency on Neo4j Desktop
 
-As stated at the end of the Stage 2 [README](), the motivation to move away from the Neo4j Desktop app and transition to python is to make progress towards a true touch-less data management system. This system is not compatible with a step that requires the user to manually open a desktop app.
+As stated at the end of the Stage 2 [README](https://github.com/lteresah/AMLS-GraphDatabase/blob/main/Stage2/README.md), the motivation to move away from the Neo4j Desktop app and transition to python is to make progress towards a true touch-less data management system. This system is not compatible with a step that requires the user to manually open a desktop app.
 
 ## 3.1: Installing the Neo4j Python API
 

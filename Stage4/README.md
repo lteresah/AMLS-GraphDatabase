@@ -11,6 +11,8 @@ This code is designed with the following goals in mind:
 3. **Flexible Node Properties**: Apart from a few required properties needed to identify and create nodes/relationships, the system allows node properties to be filled with any data.
 4. **Real-Time Generation**: Nodes and relationships can be generated in real time or shortly after the experiment, without the need to re-upload the entire database.
 
+The requirements to run the script are the same as those mentioned in [Section 3.1 of the Stage 3 README](https://github.com/lteresah/AMLS-GraphDatabase/tree/main/Stage3#31-installing-the-neo4j-python-api).
+
 ## 4.1: Basic Structure of the Script
 
 The [Jupyter Notebook](https://github.com/lteresah/AMLS-GraphDatabase/blob/main/Stage4/neo4jPythonAPI_DynamicCSV.ipynb) provided populates the database following these steps:

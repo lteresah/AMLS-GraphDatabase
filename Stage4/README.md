@@ -103,8 +103,8 @@ The cypher functions are embedded inside other functions that directly manipulat
 ### 4.3.2: Lessons Learned
 
 #### Lesson 4.1: Dynamic reading of required properties is difficult when they're all named differently. Enforce a common name for the required properties of nodes.
-   - The column name for the UID in each of the Operators was named differently. They were: Mix Operation ID, Heat Operation ID, and Rest Operation ID. This caused some difficulties when trying to extract the value of those IDs dynamically, requiring the use of some regex-like functions.
-   - I ran into the same problem with timestamps, as the columns were named similarly.
+   - I had used different names for the UID property of each operation node, which depended on the operation. They were: Mix Operation ID, Heat Operation ID, and Rest Operation ID. This caused some difficulties when trying to extract the value of those IDs dynamically, requiring the use of some regex-like functions to bypass the issue.
+   - I ran into the same problem with timestamps, which I named similarly.
    - These properties should simply be referred to as 'Operation ID', 'Timestamp', etc.
   
 #### Lesson 4.2: Enforcing the first column of the CSV to be node name will simplify the code.

@@ -51,21 +51,20 @@ See documentary on [implicit vs explicit transactions](https://neo4j.com/docs/cy
 
 Once I was able to recreate what I built with the Neo4j Workshop, it was time to figure out how to implement what the Workshop could not do. The steps I took were as follows:
 
-**Step 1:** Added secondary labels called "Operation" to all the operation nodes by changing all instances of
+1. Added secondary labels called "Operation" to all the operation nodes by changing all instances of
 
-     MERGE (n: name_of_operation { `UID_property_name`: row.`row_label_containing_UID` })
-    
-  to
+          MERGE (n: name_of_operation { `UID_property_name`: row.`row_label_containing_UID` })    
+      to
+  
+          MERGE (n: Operation:name_of_operation { `UID_property_name`: row.`row_label_containing_UID` })
+  
+      Additional labels were added for certain operations.
 
-     MERGE (n: Operation:name_of_operation { `UID_property_name`: row.`row_label_containing_UID` })
+2. Searched the internet for ideas on how to implement the time dependent relationship (:THEN).
 
-  Additional labels were added for certain operations.
+3. Modified the code found toward the bottom of this [webpage](https://community.neo4j.com/t/how-to-create-relationships-between-consecutive-nodes-based-on-date-property/29372/7) to fit the needs of our database.
 
-**Step 2:** Searched the internet for ideas on how to implement the time dependent relationship (:THEN).
-
-**Step 3:** Modified the code found toward the bottom of this [webpage](https://community.neo4j.com/t/how-to-create-relationships-between-consecutive-nodes-based-on-date-property/29372/7) to fit the needs of our database.
-
-**Step 4:** Added the block of code to the end of the script to run after all other nodes and relationships have been created.
+4. Added the block of code to the end of the script to run after all other nodes and relationships have been created.
 
 #### CYPHER Script Version 2, CSV Files Version 2, and Database Model Version 3
 

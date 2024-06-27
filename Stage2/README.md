@@ -34,8 +34,8 @@ The following modifications are required in order to make the generated code run
 #### Lesson 2.1: You need to create readable, _download or raw_ links to CSVs if you want to use Neo4j Browser to upload data.
 
 And you need to reference the links to the CSVs by defining them as parameters using syntax such as:
-
-    :param name_of_paramater => "insert_download_link_here";
+    
+        :param name_of_paramater => "insert_download_link_here";
 
 #### Lesson 2.2: The generated code is meant to be run as an _implicit transaction_, and the default transaction type in Neo4j Browser is _explicit_.
 
@@ -44,6 +44,7 @@ The parts of the code that can only be run as implicit transactions need to be c
      IN TRANSACTIONS OF 10000 ROWS;
 
 need to commented out and replaced by a semicolon.
+
 See documentary on [implicit vs explicit transactions](https://neo4j.com/docs/cypher-manual/current/introduction/cypher-neo4j/#cypher-neo4j-transactions).
 
 

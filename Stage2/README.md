@@ -97,7 +97,7 @@ The elements of this model include:
 
 ## 2.3: Discussing the Limitations of this Method
 
-At this point, we are able to upload data (from CSVs) into the database using the Neo4j Browser and generate Version 3 of the FSLR Database Model. The model includes all of the relationships we want to include and every node (up to sample creation) of the FSLR process. This is a great first step towards achieving the data management system we envision, but it is far from the flexible, touch-less, fast, and easy system that we need.
+At this point, we are able to upload data (from CSVs) into the database using the Neo4j Browser and generate Version 3 of the FSLR Database Model. The model includes all of the relationships we want to include and every node (up to sample creation) of the FSLR process. We can also make some very useful read queries ([examples here](https://github.com/lteresah/AMLS-GraphDatabase/blob/main/Stage2/Query%20Examples.docx)). This is a great first step towards achieving the data management system we envision, but it is far from the flexible, touch-less, fast, and easy system that we need.
 
 The next stage(s) of the development period will focus on addressing some of the below issues:
 
